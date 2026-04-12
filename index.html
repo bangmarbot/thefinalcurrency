@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Final Currency — What's the last currency you carry?</title>
+  <meta name="description" content="We chase wealth thinking it buys comfort. But comfort fades. The only currency that compounds forever is how you spend your time — and what you leave behind.">
+  <meta property="og:title" content="The Final Currency">
+  <meta property="og:description" content="What's the last currency you carry?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thefinalcurrency.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --gold: #C9A84C;
+      --gold-dim: rgba(201, 168, 76, 0.15);
+      --gold-faint: rgba(201, 168, 76, 0.08);
+      --navy: #1A1A2E;
+      --parchment: #F5F0E8;
+      --parchment-dim: rgba(245, 240, 232, 0.6);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--parchment);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.6; }
+    }
+
+    @keyframes hourglassFall {
+      0% { transform: translateY(-2px); }
+      50% { transform: translateY(2px); }
+      100% { transform: translateY(-2px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-4 { transition-delay: 0.6s; }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--gold-faint) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: glowPulse 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .logo-wordmark {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      letter-spacing: 0.3em;
+      color: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    .hourglass-i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 0.4em;
+      height: 1.1em;
+      margin: 0 0.05em;
+      animation: hourglassFall 3s ease-in-out infinite;
+    }
+
+    .hourglass-i svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4.5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.35;
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s ease 0.3s both;
+    }
+
+    .hero-quote em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .hero-subtext {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeInUp 1.2s ease 0.6s both;
+    }
+
+    /* Hourglass Divider */
+    .hourglass-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 1.5s ease 1s both;
+    }
+
+    .hourglass-divider .line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+
+    .hourglass-divider svg {
+      width: 20px;
+      height: 32px;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* === SECTION COMMON === */
+    section {
+      padding: 8rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* === THE QUESTION === */
+    .question {
+      background: var(--black);
+    }
+
+    .question h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+
+    .question p {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      line-height: 1.8;
+      color: var(--parchment-dim);
+    }
+
+    /* === THREE PILLARS === */
+    .pillars {
+      background: var(--black);
+      padding: 8rem 2rem;
+    }
+
+    .pillars-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .pillar-card {
+      background: rgba(26, 26, 46, 0.3);
+      border: 1px solid var(--gold-dim);
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: border-color 0.4s ease, transform 0.4s ease;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 1.5rem;
+      color: var(--gold);
+    }
+
+    .pillar-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .pillar-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--parchment-dim);
+    }
+
+    /* === MANIFESTO === */
+    .manifesto {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+
+    .manifesto::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+
+    .manifesto blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+
+    .manifesto blockquote::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2.5rem;
+    }
+
+    .manifesto blockquote::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: var(--gold);
+      margin: 2.5rem auto 0;
+    }
+
+    /* === CTA === */
+    .cta {
+      background: var(--black);
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background: #d4b35a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+    }
+
+    .cta-secondary {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--parchment-dim);
+      letter-spacing: 0.1em;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 4rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--gold-dim);
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      color: var(--parchment-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo .hourglass-i {
+      width: 0.35em;
+      height: 1em;
+      animation: none;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(245, 240, 232, 0.3);
+      letter-spacing: 0.1em;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="logo-wordmark">
+      <span>THE&nbsp;F</span>
+      <span class="hourglass-i">
+        <svg viewBox="0 0 24 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 4L22 4L12 30L2 4Z" fill="#C9A84C"/>
+          <path d="M2 60L22 60L12 34L2 60Z" fill="#C9A84C"/>
+        </svg>
+      </span>
+      <span>NAL&nbsp;CURRENCY</span>
+    </div>
+
+    <h1 class="hero-quote">
+      Sibuk ngejar harta supaya bisa hidup enak, tapi lupa mikirin gimana caranya mati <em>"enak"</em>
+    </h1>
+
+    <p class="hero-subtext">What's the last currency you carry?</p>
+
+    <div class="hourglass-divider">
+      <div class="line"></div>
+      <svg viewBox="0 0 24 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 4L22 4L12 30L2 4Z" fill="currentColor"/>
+        <path d="M2 60L22 60L12 34L2 60Z" fill="currentColor"/>
+      </svg>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- THE QUESTION -->
+  <section class="question">
+    <div class="section-inner">
+      <h2 class="reveal">What If Money Wasn't<br>The Answer?</h2>
+      <p class="reveal reveal-delay-1">
+        We chase wealth thinking it buys comfort. But comfort fades. Status expires. Titles get forgotten. The only currency that compounds forever is how you spend your time — and what you leave behind.
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE PILLARS -->
+  <section class="pillars">
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <svg class="pillar-icon" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 2H20V4H18L13 15L18 26H20V28H4V26H6L11 15L6 4H4V2Z"/>
+          <path d="M8 6H16L12 14L8 6Z" fill="currentColor" fill-opacity="0.6" stroke="none"/>
+        </svg>
+        <h3>Time</h3>
+        <p>The only resource you can't buy back. Every second is a withdrawal from a finite account.</p>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-1">
+        <svg class="pillar-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <h3>Legacy</h3>
+        <p>What people remember. What echoes beyond your last breath. The trace you leave when everything else is gone.</p>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-2">
+        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <h3>Purpose</h3>
+        <p>The north star that turns ordinary hours into extraordinary impact. Without it, time just passes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <blockquote class="reveal">
+      We're not here to sell you productivity hacks or morning routines. We're here to ask one uncomfortable question: When everything is stripped away — your title, your savings, your followers — what currency do you still carry?
+    </blockquote>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="section-inner">
+      <h2 class="reveal">The conversation starts on Instagram.</h2>
+      <a href="https://instagram.com/thefinalcurrency" target="_blank" rel="noopener" class="cta-button reveal reveal-delay-1">@thefinalcurrency</a>
+      <p class="cta-secondary reveal reveal-delay-2">thefinalcurrency.com — More coming soon.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span>THE&nbsp;F</span>
+      <span class="hourglass-i">
+        <svg viewBox="0 0 24 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 4L22 4L12 30L2 4Z" fill="#C9A84C"/>
+          <path d="M2 60L22 60L12 34L2 60Z" fill="#C9A84C"/>
+        </svg>
+      </span>
+      <span>NAL&nbsp;CURRENCY</span>
+    </div>
+    <p>&copy; 2026 The Final Currency. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
