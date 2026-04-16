@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Waktu 3 Hari — The Final Currency</title>
+  <meta name="description" content="Template gratis untuk track waktu lu selama 3 hari. Nemu jam-jam yang hilang tanpa lu sadar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --gold: #C9A84C;
+      --gold-dim: rgba(201, 168, 76, 0.15);
+      --navy: #1A1A2E;
+      --parchment: #F5F0E8;
+      --parchment-dim: rgba(245, 240, 232, 0.6);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--black);
+      color: var(--parchment);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--parchment-dim);
+      margin-bottom: 3rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .sub {
+      font-size: 1rem;
+      color: var(--parchment-dim);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--black);
+      background: var(--gold);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .btn:hover {
+      background: #d4b35a;
+      transform: translateY(-2px);
+    }
+    .note {
+      font-size: 0.8rem;
+      color: rgba(245, 240, 232, 0.3);
+      margin-top: 1.5rem;
+    }
+    .back {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="logo">THE FINAL CURRENCY</div>
+  <h1>Audit Waktu 3 Hari</h1>
+  <p class="sub">
+    Klik tombol di bawah untuk buka template Notion.
+    Duplicate ke workspace lu, dan mulai tracking hari ini.
+  </p>
+  <!-- REPLACE_NOTION_URL: ganti link di bawah dengan URL Notion template yang udah di-publish -->
+  <a href="#" id="notion-link" class="btn" target="_blank" rel="noopener">Buka Template di Notion</a>
+  <p class="note">Gratis. Butuh akun Notion (gratis juga).</p>
+  <a href="/" class="back">&larr; Kembali ke The Final Currency</a>
+
+  <script>
+    // Placeholder: replace with actual Notion URL
+    var notionUrl = '';
+    var link = document.getElementById('notion-link');
+    if (!notionUrl) {
+      link.textContent = 'Template segera hadir';
+      link.style.opacity = '0.5';
+      link.style.pointerEvents = 'none';
+    } else {
+      link.href = notionUrl;
+    }
+  </script>
+</body>
+</html>

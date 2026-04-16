@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Final Currency — What's the last currency you carry?</title>
-  <meta name="description" content="We chase wealth thinking it buys comfort. But comfort fades. The only currency that compounds forever is how you spend your time — and what you leave behind.">
+  <title>The Final Currency — Waktu adalah mata uang terakhir lu.</title>
+  <meta name="description" content="Lu sibuk ngejar harta, tapi lupa ngejar waktu. Download template Audit Waktu 3 Hari — gratis, langsung bisa dipake.">
   <meta property="og:title" content="The Final Currency">
-  <meta property="og:description" content="What's the last currency you carry?">
+  <meta property="og:description" content="Waktu adalah mata uang terakhir lu. Download Audit Waktu 3 Hari — gratis.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thefinalcurrency.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --black: #0A0A0A;
@@ -21,17 +21,11 @@
       --navy: #1A1A2E;
       --parchment: #F5F0E8;
       --parchment-dim: rgba(245, 240, 232, 0.6);
+      --parchment-faint: rgba(245, 240, 232, 0.3);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       background: var(--black);
@@ -43,20 +37,17 @@
 
     /* === ANIMATIONS === */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     @keyframes glowPulse {
       0%, 100% { opacity: 0.3; }
       50% { opacity: 0.6; }
     }
-
     @keyframes hourglassFall {
       0% { transform: translateY(-2px); }
       50% { transform: translateY(2px); }
@@ -65,19 +56,13 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
+    .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.15s; }
     .reveal-delay-2 { transition-delay: 0.3s; }
     .reveal-delay-3 { transition-delay: 0.45s; }
-    .reveal-delay-4 { transition-delay: 0.6s; }
 
     /* === HERO === */
     .hero {
@@ -87,7 +72,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1.5rem;
       position: relative;
     }
 
@@ -97,8 +82,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px;
-      height: 600px;
+      width: 500px;
+      height: 500px;
       background: radial-gradient(circle, var(--gold-faint) 0%, transparent 70%);
       border-radius: 50%;
       animation: glowPulse 6s ease-in-out infinite;
@@ -108,14 +93,13 @@
     .logo-wordmark {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: clamp(1rem, 3vw, 1.4rem);
+      font-size: clamp(0.85rem, 2.5vw, 1.2rem);
       letter-spacing: 0.3em;
       color: var(--parchment);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       position: relative;
       z-index: 1;
       animation: fadeIn 1.5s ease forwards;
@@ -130,286 +114,355 @@
       margin: 0 0.1em 0 -0.15em;
       animation: hourglassFall 3s ease-in-out infinite;
     }
-
-    .hourglass-i svg {
-      width: 100%;
-      height: 100%;
-    }
+    .hourglass-i svg { width: 100%; height: 100%; }
 
     .hero-quote {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 4.5vw, 3.2rem);
+      font-size: clamp(1.6rem, 5vw, 3rem);
       font-weight: 700;
-      line-height: 1.35;
-      max-width: 800px;
+      line-height: 1.3;
+      max-width: 700px;
       position: relative;
       z-index: 1;
       animation: fadeInUp 1.2s ease 0.3s both;
     }
-
     .hero-quote em {
       font-style: normal;
       color: var(--gold);
     }
 
-    .hero-subtext {
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(0.85rem, 1.8vw, 1.1rem);
+    .hero-sub {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
       font-weight: 300;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      margin-top: 2.5rem;
+      line-height: 1.7;
+      color: var(--parchment-dim);
+      max-width: 520px;
+      margin-top: 2rem;
       position: relative;
       z-index: 1;
       animation: fadeInUp 1.2s ease 0.6s both;
     }
 
-    /* Hourglass Divider */
-    .hourglass-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 3rem;
+    .hero-cta {
+      margin-top: 2.5rem;
       position: relative;
       z-index: 1;
-      animation: fadeIn 1.5s ease 1s both;
+      animation: fadeInUp 1.2s ease 0.9s both;
     }
 
-    .hourglass-divider .line {
-      width: 60px;
-      height: 1px;
-      background: var(--gold-dim);
-    }
-
-    .hourglass-divider svg {
-      width: 20px;
-      height: 32px;
-      color: var(--gold);
-      opacity: 0.5;
-    }
-
-    /* === SECTION COMMON === */
-    section {
-      padding: 8rem 2rem;
-    }
-
-    .section-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* === THE QUESTION === */
-    .question {
-      background: var(--black);
-      text-align: center;
-    }
-
-    .question h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      margin-bottom: 2rem;
-      line-height: 1.2;
-    }
-
-    .question p {
-      font-size: clamp(1rem, 1.8vw, 1.15rem);
-      line-height: 1.8;
-      color: var(--parchment-dim);
-    }
-
-    /* === THREE PILLARS === */
-    .pillars {
-      background: var(--black);
-      padding: 8rem 2rem;
-    }
-
-    .pillars-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .pillar-card {
-      background: rgba(26, 26, 46, 0.3);
-      border: 1px solid var(--gold-dim);
-      padding: 3rem 2rem;
-      text-align: center;
-      transition: border-color 0.4s ease, transform 0.4s ease;
-    }
-
-    .pillar-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-    }
-
-    .pillar-icon {
-      width: 48px;
-      height: 48px;
-      margin: 0 auto 1.5rem;
-      color: var(--gold);
-    }
-
-    .pillar-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
-
-    .pillar-card p {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--parchment-dim);
-    }
-
-    /* === MANIFESTO === */
-    .manifesto {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .manifesto::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-
-    .manifesto::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
-    }
-
-    .manifesto blockquote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      font-weight: 400;
-      line-height: 1.6;
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-      padding: 0 1rem;
-    }
-
-    .manifesto blockquote::before {
-      content: '';
+    .hero-arrow {
       display: block;
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: 0 auto 2.5rem;
+      margin: 3rem auto 0;
+      width: 24px;
+      color: var(--gold);
+      opacity: 0.4;
+      animation: fadeIn 1.5s ease 1.2s both;
+      position: relative;
+      z-index: 1;
     }
 
-    .manifesto blockquote::after {
-      content: '';
-      display: block;
-      width: 40px;
-      height: 2px;
-      background: var(--gold);
-      margin: 2.5rem auto 0;
-    }
-
-    /* === CTA === */
-    .cta {
-      background: var(--black);
-      text-align: center;
-    }
-
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
+    /* === BUTTONS === */
+    .btn-primary {
       display: inline-block;
       font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
       font-weight: 500;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--black);
       background: var(--gold);
-      padding: 1rem 2.5rem;
+      padding: 1rem 2.2rem;
       text-decoration: none;
+      border: none;
+      cursor: pointer;
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .cta-button:hover {
+    .btn-primary:hover {
       background: #d4b35a;
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
     }
 
-    .cta-secondary {
-      margin-top: 1.5rem;
-      font-size: 0.85rem;
-      color: var(--parchment-dim);
+    .btn-secondary {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 400;
       letter-spacing: 0.1em;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    /* === LEAD MAGNET SECTION === */
+    .lead-magnet {
+      padding: 6rem 1.5rem;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .lead-magnet::before,
+    .lead-magnet::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .lead-magnet::before { top: 0; }
+    .lead-magnet::after { bottom: 0; }
+
+    .lm-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .lm-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .lm-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+    }
+
+    .lm-inner p {
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
+      line-height: 1.8;
+      color: var(--parchment-dim);
+      margin-bottom: 1rem;
+    }
+
+    .lm-features {
+      text-align: left;
+      max-width: 400px;
+      margin: 2rem auto;
+      list-style: none;
+    }
+    .lm-features li {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--parchment);
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .lm-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.85rem;
+      width: 8px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .lm-cta { margin-top: 2rem; }
+
+    .lm-note {
+      font-size: 0.8rem;
+      color: var(--parchment-faint);
+      margin-top: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* === ABOUT SECTION === */
+    .about {
+      padding: 6rem 1.5rem;
+      background: var(--black);
+    }
+    .about-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+    .about-inner p {
+      font-size: clamp(0.9rem, 1.6vw, 1rem);
+      line-height: 1.9;
+      color: var(--parchment-dim);
+      margin-bottom: 1rem;
+    }
+    .about-inner p strong {
+      color: var(--parchment);
+      font-weight: 400;
+    }
+
+    /* === IG SECTION === */
+    .ig-follow {
+      padding: 5rem 1.5rem;
+      text-align: center;
+      background: var(--black);
+    }
+
+    .ig-follow .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .ig-follow .divider .line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold-dim);
+    }
+    .ig-follow .divider svg {
+      width: 16px;
+      height: 28px;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+
+    .ig-follow h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .ig-follow p {
+      font-size: 0.9rem;
+      color: var(--parchment-dim);
+      margin-bottom: 2rem;
+    }
+
+    /* === EMAIL CAPTURE (soft, post-download) === */
+    .email-capture {
+      padding: 5rem 1.5rem;
+      background: var(--navy);
+      text-align: center;
+      position: relative;
+    }
+    .email-capture::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+    .ec-inner {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .ec-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .ec-inner p {
+      font-size: 0.9rem;
+      color: var(--parchment-dim);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .email-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .email-form input[type="email"] {
+      flex: 1;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--gold-dim);
+      background: rgba(10, 10, 10, 0.5);
+      color: var(--parchment);
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .email-form input[type="email"]::placeholder {
+      color: var(--parchment-faint);
+    }
+    .email-form input[type="email"]:focus {
+      border-color: var(--gold);
+    }
+    .email-form button {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--black);
+      background: var(--gold);
+      border: none;
+      padding: 0.85rem 1.5rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.3s;
+    }
+    .email-form button:hover { background: #d4b35a; }
+    .email-status {
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-top: 0.75rem;
+      min-height: 1.2rem;
+    }
+
+    @media (max-width: 480px) {
+      .email-form {
+        flex-direction: column;
+      }
+      .email-form button {
+        padding: 0.85rem;
+      }
     }
 
     /* === FOOTER === */
     footer {
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       text-align: center;
       border-top: 1px solid var(--gold-dim);
     }
-
     .footer-logo {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 0.3em;
-      color: var(--parchment-dim);
+      color: var(--parchment-faint);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
-
     .footer-logo .hourglass-i {
       width: 0.45em;
       height: 1em;
       margin: 0 0.1em 0 -0.15em;
       animation: none;
     }
-
     footer p {
-      font-size: 0.75rem;
-      color: rgba(245, 240, 232, 0.3);
+      font-size: 0.7rem;
+      color: rgba(245, 240, 232, 0.25);
       letter-spacing: 0.1em;
     }
 
     /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      .pillars-grid {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-      }
-
-      section {
-        padding: 5rem 1.5rem;
-      }
-
-      .hero {
-        padding: 1.5rem;
-      }
+      .hero { min-height: 90vh; }
     }
   </style>
 </head>
@@ -429,12 +482,70 @@
     </div>
 
     <h1 class="hero-quote">
-      Chasing comfort, chasing gold — never asking what we'll hold when the final story's <em>told</em>
+      Lu sibuk ngejar harta.<br>
+      Tapi waktu lu <em>lari</em><br>
+      ke mana?
     </h1>
 
-    <p class="hero-subtext">What's the last currency you carry?</p>
+    <p class="hero-sub">
+      37 juta orang Indonesia kerja lebih dari 49 jam seminggu.
+      Gaji naik, tapi waktu buat keluarga makin sempit.
+      Ini halaman buat lu yang mulai nanya — <strong>apa yang beneran gw kejar?</strong>
+    </p>
 
-    <div class="hourglass-divider">
+    <div class="hero-cta">
+      <a href="#audit" class="btn-primary">Download Audit Waktu — Gratis</a>
+    </div>
+
+    <svg class="hero-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </section>
+
+  <!-- LEAD MAGNET -->
+  <section class="lead-magnet" id="audit">
+    <div class="lm-inner">
+      <span class="lm-badge reveal">Free Template</span>
+      <h2 class="reveal reveal-delay-1">Audit Waktu 3 Hari</h2>
+      <p class="reveal reveal-delay-2">
+        Lu nggak tau ke mana waktu lu pergi. Itu masalah pertama.
+        Template ini bantu lu track semua aktivitas per 30 menit, selama 3 hari — dan nemu jam-jam yang selama ini hilang tanpa lu sadar.
+      </p>
+
+      <ul class="lm-features reveal reveal-delay-2">
+        <li>Template tracking per 30 menit (3 hari)</li>
+        <li>Kategori otomatis: productive, necessary, wasted</li>
+        <li>Summary sheet — hitung berapa jam yang bisa lu reclaim</li>
+        <li>Langsung bisa dipake hari ini</li>
+      </ul>
+
+      <div class="lm-cta reveal reveal-delay-3">
+        <a href="/audit-waktu.html" class="btn-primary" target="_blank">Download Template</a>
+      </div>
+      <p class="lm-note reveal reveal-delay-3">Gratis. Tanpa email. Langsung bisa dipake.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="about-inner">
+      <h2 class="reveal">Kenapa gw bikin ini?</h2>
+      <p class="reveal reveal-delay-1">
+        Gw bapak 34 tahun, 3 anak. Kerja, side project, kuliah S2 — semua jalan bareng.
+        Di titik tertentu gw sadar: gw sibuk ngejar semua, tapi <strong>waktu buat hadir di rumah makin tipis.</strong>
+      </p>
+      <p class="reveal reveal-delay-2">
+        The Final Currency itu refleksi perjalanan gw. Bukan nasihat dari atas. Tapi pertanyaan yang sama-sama kita tanya: <strong>kalau uang bukan tujuan akhir, terus apa?</strong>
+      </p>
+      <p class="reveal reveal-delay-3">
+        Jawabannya selalu balik ke satu hal — <strong>waktu.</strong> Dan gimana caranya supaya waktu yang lu punya, beneran milik lu.
+      </p>
+    </div>
+  </section>
+
+  <!-- IG FOLLOW -->
+  <section class="ig-follow">
+    <div class="divider reveal">
       <div class="line"></div>
       <svg viewBox="0 0 24 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 4L22 4L12 30L2 4Z" fill="currentColor"/>
@@ -442,61 +553,21 @@
       </svg>
       <div class="line"></div>
     </div>
+    <h2 class="reveal">Konten baru setiap hari di Instagram.</h2>
+    <p class="reveal reveal-delay-1">Cerita nyata, data, dan perspektif soal waktu & hidup.</p>
+    <a href="https://instagram.com/thefinalcurrency" target="_blank" rel="noopener" class="btn-secondary reveal reveal-delay-2">@thefinalcurrency</a>
   </section>
 
-  <!-- THE QUESTION -->
-  <section class="question">
-    <div class="section-inner">
-      <h2 class="reveal">What If Money Wasn't<br>The Answer?</h2>
-      <p class="reveal reveal-delay-1">
-        We chase wealth thinking it buys comfort. But comfort fades. Status expires. Titles get forgotten. The only currency that compounds forever is how you spend your time — and what you leave behind.
-      </p>
-    </div>
-  </section>
-
-  <!-- THREE PILLARS -->
-  <section class="pillars">
-    <div class="pillars-grid">
-      <div class="pillar-card reveal">
-        <svg class="pillar-icon" viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M4 2H20V4H18L13 15L18 26H20V28H4V26H6L11 15L6 4H4V2Z"/>
-          <path d="M8 6H16L12 14L8 6Z" fill="currentColor" fill-opacity="0.6" stroke="none"/>
-        </svg>
-        <h3>Time</h3>
-        <p>The only resource you can't buy back. Every second is a withdrawal from a finite account.</p>
-      </div>
-
-      <div class="pillar-card reveal reveal-delay-1">
-        <svg class="pillar-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <h3>Legacy</h3>
-        <p>What people remember. What echoes beyond your last breath. The trace you leave when everything else is gone.</p>
-      </div>
-
-      <div class="pillar-card reveal reveal-delay-2">
-        <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-        </svg>
-        <h3>Purpose</h3>
-        <p>The north star that turns ordinary hours into extraordinary impact. Without it, time just passes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- MANIFESTO -->
-  <section class="manifesto">
-    <blockquote class="reveal">
-      When everything is stripped away — your title, your savings, your followers — what currency do you still carry?
-    </blockquote>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <div class="section-inner">
-      <h2 class="reveal">The conversation starts on Instagram.</h2>
-      <a href="https://instagram.com/thefinalcurrency" target="_blank" rel="noopener" class="cta-button reveal reveal-delay-1">@thefinalcurrency</a>
-      <p class="cta-secondary reveal reveal-delay-2">thefinalcurrency.com — More coming soon.</p>
+  <!-- EMAIL CAPTURE (soft ask) -->
+  <section class="email-capture">
+    <div class="ec-inner">
+      <h2 class="reveal">Mau dapet resource kayak gini lagi?</h2>
+      <p class="reveal reveal-delay-1">Nggak spam. Cuma kirim kalau ada yang beneran worth your time.</p>
+      <form class="email-form reveal reveal-delay-2" onsubmit="return handleEmail(event)">
+        <input type="email" id="email-input" placeholder="Email lu" required>
+        <button type="submit">Kirim</button>
+      </form>
+      <p class="email-status reveal reveal-delay-2" id="email-status"></p>
     </div>
   </section>
 
@@ -512,7 +583,7 @@
       </span>
       <span>NAL&nbsp;CURRENCY</span>
     </div>
-    <p>&copy; 2026 The Final Currency. All rights reserved.</p>
+    <p>&copy; 2026 The Final Currency.</p>
   </footer>
 
   <script>
@@ -520,13 +591,27 @@
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
     reveals.forEach(el => observer.observe(el));
+
+    // Email capture (stores to localStorage for now — can be wired to a service later)
+    function handleEmail(e) {
+      e.preventDefault();
+      const email = document.getElementById('email-input').value;
+      const status = document.getElementById('email-status');
+
+      // Store locally (replace with API call when ready)
+      const emails = JSON.parse(localStorage.getItem('tfc_emails') || '[]');
+      emails.push({ email, timestamp: new Date().toISOString() });
+      localStorage.setItem('tfc_emails', JSON.stringify(emails));
+
+      status.textContent = 'Noted. Lu bakal dapet kabar pertama.';
+      document.getElementById('email-input').value = '';
+      document.getElementById('email-input').disabled = true;
+      e.target.querySelector('button').disabled = true;
+    }
   </script>
 
 </body>
